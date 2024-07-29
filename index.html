@@ -5,12 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>Spelling Game</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
     </style>
   </head>
   <body>
+    <header>
+      <a href="#words">See All Saved Words</a>
+      <h1 id="title">Spelling Game</h1>
+    </header>
+    <main>
+      <form action="submit">
+        <button class="btn audio-btn">
+          Play Audio
+          <img class="play-icon" src="#" />
+        </button>
+
+        <div class="input-container">
+          <textarea name="word" placeholder="Enter word here"></textarea>
+          <input class="btn" type="submit" value="Check" />
+        </div>
+      </form>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>
