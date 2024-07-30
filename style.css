@@ -29,15 +29,30 @@ body {
   height: 40px; /* Set height to match textarea */
 }
 
+#title {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 5rem;
+}
+
+.words {
+  display: block;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.384);
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
 textarea {
   border: 1px solid rgb(207, 207, 207);
   border-radius: 5px;
-  resize: none;
+  resize: vertical;
   height: 40px; /* Match the height of the button */
   padding: 0; /* Remove padding to ensure height matches */
   line-height: 40px; /* Align text vertically */
   font-size: 20px; /* Match font size with button */
   padding-left: 8px;
+  overflow: hidden;
 }
 
 textarea::placeholder {
@@ -56,7 +71,7 @@ textarea::placeholder {
 main {
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 form {
