@@ -17,7 +17,7 @@ body {
 
 .btn {
   border: none;
-  background-image: linear-gradient(90deg, #a7bc5d, #6fa897);
+  background-image: linear-gradient(90deg, #000000, #000000);
   cursor: pointer;
   font-family: inherit;
   color: white;
@@ -25,7 +25,7 @@ body {
   font-size: 14px;
   padding: 10px 30px;
   border-radius: 10px;
-  box-shadow: 3px 3px 5px #6fa897;
+  box-shadow: 2px 2px 5px #000000;
   height: 40px; /* Set height to match textarea */
 }
 
@@ -111,7 +111,7 @@ aside {
 .title {
   text-align: center;
   font-size: 3rem;
-  padding-top: 5rem;
+  padding-top: 8rem;
 }
 
 .input-spelling {
@@ -139,6 +139,13 @@ aside {
 
 .audio {
   text-align: center;
+  font-size: 1.2rem;
+}
+
+.play-icon {
+  padding-right: 6px;
+  box-sizing: content-box;
+  cursor: pointer;
 }
 
 main {
@@ -181,4 +188,10 @@ form {
 
 .incorrect-counter {
   color: rgb(255, 0, 0);
+}
+
+.incorrect-correct-spelling {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.5rem;
 }

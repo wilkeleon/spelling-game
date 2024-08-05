@@ -93,9 +93,9 @@
     </aside>
     <h1 class="title">Spelling Game</h1>
     <main>
-      <form action="submit">
+      <div>
         <div class="audio">
-          <img class="play-icon" src="assets/icons8-play-30.png" width="12" />
+          <img class="play-icon" src="assets/icons8-play-30.png" width="15" />
           Play Audio
         </div>
 
@@ -105,10 +105,11 @@
             type="text"
             placeholder="Enter word here"
           />
-          <input class="btn" type="submit" value="Check" />
+          <input class="btn input-spelling-btn" type="submit" value="Check" />
         </div>
-        <p class="correct-text">Correct ✔️</p>
-        <p class="incorrect-text">Incorrect ❌</p>
+        <p class="correct-text"></p>
+        <p class="incorrect-text"></p>
+        <div class="incorrect-correct-spelling"></div>
         <div class="counter">
           <div>
             <span class="correct-counter">Correct: </span>
@@ -119,7 +120,7 @@
             <span class="incorrect-counter-count">0</span>
           </div>
         </div>
-      </form>
+      </div>
     </main>
     <script src="script.js"></script>
   </body>
