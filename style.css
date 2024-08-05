@@ -33,7 +33,16 @@ body {
   position: absolute;
   top: 20px;
   left: 20px;
+  cursor: pointer;
   display: none;
+}
+
+/* Aside Section */
+
+.arrow {
+  position: absolute;
+  left: 360px;
+  top: 10px;
 }
 
 aside {
@@ -42,6 +51,7 @@ aside {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.1);
   font-weight: 400;
+  padding: 60px;
 }
 
 .aside-title {
@@ -50,12 +60,15 @@ aside {
   padding: 8px 0;
 }
 
-.saved-words {
-  padding: 8px 0;
+.aside-content {
   max-height: calc(
     100% - 40px
   ); /* Subtracting the sidebar's padding (top + bottom) */
   overflow-y: auto; /* Adds vertical scrolling when the list is too long */
+}
+
+.saved-words {
+  padding: 8px 0;
 }
 .saved-word {
   padding: 8px 0 8px 16px;
@@ -72,6 +85,26 @@ aside {
 .delete-icon {
   display: flex;
 }
+
+.aside-text-container {
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.aside-text {
+  font-weight: 700;
+}
+
+.aside-text-container input {
+  margin-top: 4px;
+}
+
+.aside-text-container button {
+  cursor: pointer;
+}
+
+/* Main Section */
 
 .title {
   text-align: center;
