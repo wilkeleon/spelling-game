@@ -11,17 +11,86 @@
     </style>
   </head>
   <body>
-    <h1 id="title">Spelling Game</h1>
-    <a href="#words" class="words">Saved Words</a>
+    <img
+      class="menu-icon"
+      src="assets/icons8-menu.svg"
+      alt="menu icon"
+      width="30"
+    />
+    <aside>
+      <p class="aside-title">Saved Words</p>
+      <ul class="saved-words">
+        <li class="saved-word">
+          Apple<button class="delete-word">
+            <img
+              class="delete-icon"
+              src="assets/icons8-garbage-24.png"
+              alt="garbage"
+              width="15"
+            />
+          </button>
+        </li>
+        <li class="saved-word">
+          Orange<button class="delete-word">
+            <img
+              class="delete-icon"
+              src="assets/icons8-garbage-24.png"
+              alt="garbage"
+              width="15"
+            />
+          </button>
+        </li>
+        <li class="saved-word">
+          Banana<button class="delete-word">
+            <img
+              class="delete-icon"
+              src="assets/icons8-garbage-24.png"
+              alt="garbage"
+              width="15"
+            />
+          </button>
+        </li>
+        <li class="saved-word">
+          Grape<button class="delete-word">
+            <img
+              class="delete-icon"
+              src="assets/icons8-garbage-24.png"
+              alt="garbage"
+              width="15"
+            />
+          </button>
+        </li>
+        <li class="saved-word">
+          Watermelon<button class="delete-word">
+            <img
+              class="delete-icon"
+              src="assets/icons8-garbage-24.png"
+              alt="garbage"
+              width="15"
+            />
+          </button>
+        </li>
+      </ul>
+    </aside>
+    <h1 class="title">Spelling Game</h1>
     <main>
       <form action="submit">
-        <button class="btn audio-btn">
+        <div class="audio">
+          <img
+            class="play-icon"
+            src="assets/icons8-play-30.png"
+            width="12"
+            onclick="play()"
+          />
           Play Audio
-          <img class="play-icon" src="#" />
-        </button>
+        </div>
 
         <div class="input-container">
-          <textarea name="word" placeholder="Enter word here"></textarea>
+          <input
+            class="input-spelling"
+            type="text"
+            placeholder="Enter word here"
+          />
           <input class="btn" type="submit" value="Check" />
         </div>
       </form>

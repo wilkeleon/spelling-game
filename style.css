@@ -29,33 +29,67 @@ body {
   height: 40px; /* Set height to match textarea */
 }
 
-#title {
+.menu-icon {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: none;
+}
+
+aside {
+  position: absolute;
+  width: 400px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-weight: 400;
+}
+
+.aside-title {
+  text-align: center;
+  border-bottom: 1px solid grey;
+  padding: 8px 0;
+}
+
+.saved-words {
+  padding: 8px 0;
+  max-height: calc(
+    100% - 40px
+  ); /* Subtracting the sidebar's padding (top + bottom) */
+  overflow-y: auto; /* Adds vertical scrolling when the list is too long */
+}
+.saved-word {
+  padding: 8px 0 8px 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete-word {
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 1rem;
+}
+
+.delete-icon {
+  display: flex;
+}
+
+.title {
   text-align: center;
   font-size: 3rem;
-  margin-top: 5rem;
+  padding-top: 5rem;
 }
 
-.words {
-  display: block;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.384);
-  font-weight: 500;
-  margin-top: 0.5rem;
-}
-
-textarea {
+.input-spelling {
   border: 1px solid rgb(207, 207, 207);
   border-radius: 5px;
-  resize: vertical;
   height: 40px; /* Match the height of the button */
   padding: 0; /* Remove padding to ensure height matches */
   line-height: 40px; /* Align text vertically */
   font-size: 20px; /* Match font size with button */
   padding-left: 8px;
-  overflow: hidden;
 }
 
-textarea::placeholder {
+.input-spelling::placeholder {
   color: rgb(177, 177, 177);
   font-weight: 400;
   font-size: 20px; /* Adjust font size to fit height */
@@ -65,13 +99,17 @@ textarea::placeholder {
 .input-container {
   display: flex;
   gap: 5px;
-  margin-top: 1rem;
+  margin-top: 2rem;
+}
+
+.audio {
+  text-align: center;
 }
 
 main {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 form {
