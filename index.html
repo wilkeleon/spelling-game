@@ -82,8 +82,12 @@
         <hr />
         <div class="aside-text-container">
           <p class="aside-text">Add more words?</p>
-          <input type="text" placeholder="Enter New Word Here" />
-          <button>Add</button>
+          <input
+            class="aside-input"
+            type="text"
+            placeholder="Enter New Word Here"
+          />
+          <button class="aside-input-submit">Add</button>
         </div>
       </div>
     </aside>
@@ -102,6 +106,18 @@
             placeholder="Enter word here"
           />
           <input class="btn" type="submit" value="Check" />
+        </div>
+        <p class="correct-text">Correct ✔️</p>
+        <p class="incorrect-text">Incorrect ❌</p>
+        <div class="counter">
+          <div>
+            <span class="correct-counter">Correct: </span>
+            <span class="correct-counter-count">0</span>
+          </div>
+          <div>
+            <span class="incorrect-counter">Incorrect: </span>
+            <span class="incorrect-counter-count">0</span>
+          </div>
         </div>
       </form>
     </main>

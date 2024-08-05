@@ -43,6 +43,8 @@ body {
   position: absolute;
   left: 360px;
   top: 10px;
+  cursor: pointer;
+  z-index: 10;
 }
 
 aside {
@@ -148,4 +150,35 @@ main {
 form {
   display: flex;
   flex-direction: column;
+}
+
+.correct-text {
+  color: rgb(19, 180, 19);
+  font-size: 24px;
+  text-align: center;
+  padding-top: 1rem;
+  display: none;
+}
+
+.incorrect-text {
+  color: rgb(255, 0, 0);
+  font-size: 24px;
+  text-align: center;
+  padding-top: 1rem;
+  display: none;
+}
+
+.counter {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.correct-counter {
+  color: rgb(19, 180, 19);
+}
+
+.incorrect-counter {
+  color: rgb(255, 0, 0);
 }
