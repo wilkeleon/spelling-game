@@ -4,7 +4,6 @@ let words = [];
 
 const darkIcon = document.querySelector(".dark-icon");
 const lightIcon = document.querySelector(".light-icon");
-const playAudioEl2 = document.querySelector(".play-icon-2");
 const buttonEl = document.querySelector(".btn");
 
 darkIcon.addEventListener("click", () => {
@@ -49,12 +48,12 @@ menuIcon.addEventListener("click", () => {
 
 const newWordInput = document.querySelector(".aside-input");
 const newWordSubmit = document.querySelector(".aside-input-submit");
-const ulEl = document.querySelector(".saved-words");
+const savedWordsEl = document.querySelector(".saved-words");
 const listPlaceholder = document.querySelector(".list-placeholder");
 
 function updatePlaceholder() {
   // Check if <ul> is empty and show/hide placeholder accordingly
-  if (ulEl.children.length === 1) {
+  if (savedWordsEl.children.length === 1) {
     listPlaceholder.style.display = "block";
   } else {
     listPlaceholder.style.display = "none";
@@ -79,7 +78,7 @@ newWordSubmit.addEventListener("click", function addNewWord() {
       `;
 
     // Insert the new HTML into the <ul> element
-    ulEl.insertAdjacentHTML("beforeend", newListItemHTML);
+    savedWordsEl.insertAdjacentHTML("beforeend", newListItemHTML);
 
     // Clear the input field after adding the new word
     newWordInput.value = "";
@@ -108,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </button>
           </li>
         `;
-      ulEl.insertAdjacentHTML("beforeend", newListItemHTML);
+      savedWordsEl.insertAdjacentHTML("beforeend", newListItemHTML);
     });
 
     updatePlaceholder();
@@ -116,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Delete Saved Word with Proper Event Delegation
-ulEl.addEventListener("click", (event) => {
+savedWordsEl.addEventListener("click", (event) => {
   if (event.target.classList.contains("delete-icon")) {
     // Get the parent <li> element
     const listItem = event.target.closest(".saved-word");
