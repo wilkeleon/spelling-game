@@ -1,5 +1,30 @@
 let words = [];
 
+// Dark Mode / Light Mode
+
+const darkIcon = document.querySelector(".dark-icon");
+const lightIcon = document.querySelector(".light-icon");
+const playAudioEl2 = document.querySelector(".play-icon-2");
+const buttonEl = document.querySelector(".btn");
+
+darkIcon.addEventListener("click", () => {
+  document.body.style.backgroundColor = "#171824";
+  document.body.style.color = "white";
+  darkIcon.style.display = "none";
+  lightIcon.style.display = "block";
+  buttonEl.style.backgroundColor = "white";
+  buttonEl.style.color = "black";
+});
+
+lightIcon.addEventListener("click", () => {
+  document.body.style.backgroundColor = "white";
+  document.body.style.color = "black";
+  darkIcon.style.display = "block";
+  lightIcon.style.display = "none";
+  buttonEl.style.backgroundColor = "black";
+  buttonEl.style.color = "white";
+});
+
 // Open & Close Sidebar
 
 const arrowIcon = document.querySelector(".arrow");
@@ -34,11 +59,13 @@ function updatePlaceholder() {
   }
 }
 
+// Adding New Words
 newWordSubmit.addEventListener("click", function addNewWord() {
   let newWord = newWordInput.value.trim();
-  words.push(newWord.toLowerCase());
   if (newWord !== "") {
-    // Only proceed if the input is not empty
+    words.push(newWord.toLowerCase());
+    localStorage.setItem("words", JSON.stringify(words));
+
     // Create the HTML string for the new list item
     const newListItemHTML = `
         <li class="saved-word">
@@ -59,8 +86,34 @@ newWordSubmit.addEventListener("click", function addNewWord() {
   }
 });
 
-// Delete Saved Word
+// Saving/Deleting Words To Local Storage
 
+const deleteIcon = document.querySelector(".delete-icon");
+
+// Load and Display Saved Words from Local Storage
+document.addEventListener("DOMContentLoaded", () => {
+  const savedWords = localStorage.getItem("words");
+
+  if (savedWords) {
+    words = JSON.parse(savedWords);
+
+    words.forEach((word) => {
+      const newListItemHTML = `
+          <li class="saved-word">
+            ${word}
+            <button class="delete-word">
+              <img class="delete-icon" src="assets/icons8-garbage-24.png" alt="garbage" width="15" />
+            </button>
+          </li>
+        `;
+      ulEl.insertAdjacentHTML("beforeend", newListItemHTML);
+    });
+
+    updatePlaceholder();
+  }
+});
+
+// Delete Saved Word with Proper Event Delegation
 ulEl.addEventListener("click", (event) => {
   if (event.target.classList.contains("delete-icon")) {
     // Get the parent <li> element
@@ -73,6 +126,9 @@ ulEl.addEventListener("click", (event) => {
       // Remove the <li> element from the DOM
       listItem.remove();
 
+      // Update local storage after deletion
+      localStorage.setItem("words", JSON.stringify(words));
+
       updatePlaceholder();
     }
   }
@@ -83,10 +139,11 @@ updatePlaceholder();
 // Text To Speech
 
 const playAudioEl = document.querySelector(".play-icon");
+const playAudioDiv = document.querySelector(".audio");
 
 let randomWord = ""; // Declare randomWord in a scope where it persists
 
-playAudioEl.addEventListener("click", () => {
+playAudioDiv.addEventListener("click", () => {
   let randomIdx = Math.floor(Math.random() * words.length);
   randomWord = words[randomIdx];
   let msg = new SpeechSynthesisUtterance();
@@ -154,5 +211,12 @@ inputSpellingBtn.addEventListener("click", (event) => {
     setTimeout(() => {
       incorrectText.style.display = "none";
     }, 5000);
+  }
+});
+
+inputSpellingEl.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    // Trigger the click event on the button to reuse the logic
+    inputSpellingBtn.click();
   }
 });
