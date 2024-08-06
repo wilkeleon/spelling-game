@@ -34,7 +34,6 @@ body {
   top: 20px;
   left: 20px;
   cursor: pointer;
-  display: none;
 }
 
 /* Aside Section */
@@ -45,6 +44,7 @@ body {
   top: 10px;
   cursor: pointer;
   z-index: 10;
+  display: none;
 }
 
 aside {
@@ -54,12 +54,14 @@ aside {
   background-color: rgba(0, 0, 0, 0.1);
   font-weight: 400;
   padding: 60px;
+  display: none;
 }
 
 .aside-title {
   text-align: center;
   border-bottom: 1px solid grey;
   padding: 8px 0;
+  font-size: 18px;
 }
 
 .aside-content {
@@ -72,6 +74,13 @@ aside {
 .saved-words {
   padding: 8px 0;
 }
+
+.list-placeholder {
+  text-align: center;
+  margin: 1rem;
+  font-size: 14px;
+}
+
 .saved-word {
   padding: 8px 0 8px 16px;
   display: flex;

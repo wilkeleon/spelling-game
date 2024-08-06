@@ -1,10 +1,38 @@
 let words = [];
 
+// Open & Close Sidebar
+
+const arrowIcon = document.querySelector(".arrow");
+const menuIcon = document.querySelector(".menu-icon");
+const asideEl = document.getElementById("aside");
+
+arrowIcon.addEventListener("click", () => {
+  asideEl.style.display = "none";
+  arrowIcon.style.display = "none";
+  menuIcon.style.display = "block";
+});
+
+menuIcon.addEventListener("click", () => {
+  asideEl.style.display = "block";
+  arrowIcon.style.display = "block";
+  menuIcon.style.display = "none";
+});
+
 // Adding New Words
 
 const newWordInput = document.querySelector(".aside-input");
 const newWordSubmit = document.querySelector(".aside-input-submit");
 const ulEl = document.querySelector(".saved-words");
+const listPlaceholder = document.querySelector(".list-placeholder");
+
+function updatePlaceholder() {
+  // Check if <ul> is empty and show/hide placeholder accordingly
+  if (ulEl.children.length === 1) {
+    listPlaceholder.style.display = "block";
+  } else {
+    listPlaceholder.style.display = "none";
+  }
+}
 
 newWordSubmit.addEventListener("click", function addNewWord() {
   let newWord = newWordInput.value.trim();
@@ -26,9 +54,31 @@ newWordSubmit.addEventListener("click", function addNewWord() {
 
     // Clear the input field after adding the new word
     newWordInput.value = "";
-    console.log(words);
+
+    updatePlaceholder();
   }
 });
+
+// Delete Saved Word
+
+ulEl.addEventListener("click", (event) => {
+  if (event.target.classList.contains("delete-icon")) {
+    // Get the parent <li> element
+    const listItem = event.target.closest(".saved-word");
+    if (listItem) {
+      // Remove the word from the words array
+      const wordText = listItem.textContent.trim().split(" ")[0].toLowerCase();
+      words = words.filter((word) => word !== wordText);
+
+      // Remove the <li> element from the DOM
+      listItem.remove();
+
+      updatePlaceholder();
+    }
+  }
+});
+
+updatePlaceholder();
 
 // Text To Speech
 
@@ -57,6 +107,12 @@ const incorrectCounter = document.querySelector(".incorrect-counter-count");
 
 const correctSpelling = document.querySelector(".incorrect-correct-spelling");
 
+const correctAudio = new Audio("assets/ding.mp3");
+const incorrectAudio = new Audio("assets/wrong.mp3");
+
+correctAudio.volume = 0.2;
+incorrectAudio.volume = 0.2;
+
 let correctCount = 0;
 let incorrectCount = 0;
 
@@ -72,6 +128,9 @@ inputSpellingBtn.addEventListener("click", (event) => {
     inputSpellingEl.value = "";
     correctCount++;
     correctCounter.textContent = correctCount;
+
+    correctAudio.play();
+
     setTimeout(() => {
       correctText.style.display = "none";
     }, 3000);
@@ -86,6 +145,9 @@ inputSpellingBtn.addEventListener("click", (event) => {
     incorrectCounter.textContent = incorrectCount;
     correctSpelling.style.display = "block";
     correctSpelling.textContent = `${randomWord} is the correct spelling.`;
+
+    incorrectAudio.play();
+
     setTimeout(() => {
       correctSpelling.style.display = "none";
     }, 5000);
