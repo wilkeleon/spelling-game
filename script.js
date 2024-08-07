@@ -15,6 +15,7 @@ darkIcon.addEventListener("click", () => {
   buttonEl.style.color = "black";
   newWordInput.style.color = "black";
   inputSpellingEl.style.color = "black";
+  arrowIcon.style.backgroundColor = "white";
 });
 
 lightIcon.addEventListener("click", () => {

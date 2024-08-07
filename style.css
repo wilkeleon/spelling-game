@@ -69,6 +69,8 @@ body {
   cursor: pointer;
   z-index: 10;
   display: none;
+  border-radius: 50%;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 aside {
